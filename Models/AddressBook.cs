@@ -51,5 +51,6 @@ namespace AddressBook.Models
     {
       _contacts.Add(this);
     }
+    
   }
 }
