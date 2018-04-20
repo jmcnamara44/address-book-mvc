@@ -1,5 +1,13 @@
 <h2>Below are all of the contacts within your address book.</h2>
 <ul>
-
+@foreach(var contact in Model)
+{
+  <li>Name: @contact.GetName()
+    <ul>
+      <li>Address: @contact.GetAddress()</li>
+      <li>Phone Number: @contact.GetPhoneNumber()</li>
+    </ul>
+  </li>
+}
 </ul>
 <a href="create-form"><button>Add to Address Book</button></a>

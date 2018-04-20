@@ -4,15 +4,15 @@ using System;
 
 namespace AddressBook.Models
 {
-  public class AddressBook
+  public class Addresses
   {
     private string _name;
     private string _address;
     private string _phoneNumber;
     private static int _id;
-    private static List<AddressBook> _contacts = new List<AddressBook> {};
+    private static List<Addresses> _contacts = new List<Addresses> {};
 
-    public AddressBook (string name, string address, string phoneNumber)
+    public Addresses (string name, string address, string phoneNumber)
     {
       _name = name;
       _address = address;
@@ -43,7 +43,7 @@ namespace AddressBook.Models
     {
       _phoneNumber = newPhoneNumber;
     }
-    public static List<AddressBook> GetAll()
+    public static List<Addresses> GetAll()
     {
       return _contacts;
     }
@@ -51,6 +51,6 @@ namespace AddressBook.Models
     {
       _contacts.Add(this);
     }
-    
+
   }
 }

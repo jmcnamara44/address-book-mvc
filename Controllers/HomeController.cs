@@ -10,15 +10,22 @@ namespace AddressBook.Controllers
       [HttpGet("/")]
       public ActionResult Index()
       {
-
-
-        return View();
+        List<Addresses> allContacts = Addresses.GetAll();
+        return View(allContacts);
       }
       [HttpGet("/create-form")]
       public ActionResult CreateForm()
       {
-
+        
         return View();
+      }
+      [HttpPost("/create-address")]
+      public ActionResult CreateAddress()
+      {
+      Addresses newAddress = new Addresses(Request.Form["name"], Request.Form["address"], Request.Form["phone-number"]);
+      newAddress.Save();
+      List<Addresses> allContacts = Addresses.GetAll();
+      return View("Index", allContacts);
       }
 
 
