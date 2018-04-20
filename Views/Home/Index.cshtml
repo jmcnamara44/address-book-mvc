@@ -1,14 +1,21 @@
+@{
+  Layout = "_Layout";
+}
+
 <h2>Below are all of the contacts within your address book.</h2>
 <ul>
 @foreach(var contact in Model)
 {
   <li>Name: @contact.GetName()
     <ul>
-      <li>Address: @contact.GetAddress()</li>
+      <li>Steet Address: @contact.GetAddress().GetStreetAddress()</li>
+      <li>City: @contact.GetAddress().GetCity()</li>
+      <li>State: @contact.GetAddress().GetState()</li>
+      <li>Zip Code: @contact.GetAddress().GetZipCode()</li>
       <li>Phone Number: @contact.GetPhoneNumber()</li>
     </ul>
   </li>
 }
 </ul>
-<a href="create-form"><button>Add to Address Book</button></a>
-<a href="delete"><button>Delete all contacts</button></a>
+<a href="create-form"><button class="btn btn-primary">Add to Address Book</button></a>
+<a href="delete"><button class="btn btn-warning">Delete all contacts</button></a>

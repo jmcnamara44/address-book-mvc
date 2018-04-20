@@ -1,12 +1,28 @@
-<form action='/create-address' method="post">
+@{
+  Layout = "_Layout";
+}
+
+<form action='/create-contact' method="post">
   <h3> Add a new contact to your address book!</h3>
   <div class='form-group'>
     <label for='name'>Name</label>
     <input id='name' name='name' class='form-control' type='text'>
   </div>
   <div class='form-group'>
-    <label for='address'>Address</label>
-    <input id='address' name='address' class='form-control' type='text'>
+    <label for='street-address'>Street Address</label>
+    <input id='street-address' name='street-address' class='form-control' type='text'>
+  </div>
+  <div class='form-group'>
+    <label for='city'>City</label>
+    <input id='city' name='city' class='form-control' type='text'>
+  </div>
+  <div class='form-group'>
+    <label for='state'>State</label>
+    <input id='state' name='state' class='form-control' type='text'>
+  </div>
+  <div class='form-group'>
+    <label for='zip-code'>Zip Code</label>
+    <input id='zip-code' name='zip-code' class='form-control' type='text'>
   </div>
   <div class='form-group'>
     <label for='phone-number'>Phone Number</label>

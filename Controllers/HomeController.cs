@@ -7,32 +7,33 @@ namespace AddressBook.Controllers
     public class HomeController : Controller
     {
 
-      [HttpGet("/")]
-      public ActionResult Index()
-      {
-        List<Addresses> allContacts = Addresses.GetAll();
-        return View(allContacts);
-      }
-      [HttpGet("/create-form")]
-      public ActionResult CreateForm()
-      {
-        return View();
-      }
-      [HttpPost("/create-address")]
-      public ActionResult CreateAddress()
-      {
-      Addresses newAddress = new Addresses(Request.Form["name"], Request.Form["address"], Request.Form["phone-number"]);
-      newAddress.Save();
-      List<Addresses> allContacts = Addresses.GetAll();
-      return View("Index", allContacts);
-      }
-      [HttpGet("/delete")]
-      public ActionResult Delete()
-      {
-        Addresses.ClearAll();
-        List<Addresses> allContacts = Addresses.GetAll();
-        return View("Index", allContacts);
-      }
+        [HttpGet("/")]
+        public ActionResult Index()
+        {
+            List<Contact> allContacts = Contact.GetAll();
+            return View(allContacts);
+        }
+        [HttpGet("/create-form")]
+        public ActionResult CreateForm()
+        {
+            return View();
+        }
+        [HttpPost("/create-contact")]
+        public ActionResult CreateContact()
+        {
+            Address newAddress = new Address(Request.Form["street-address"], Request.Form["city"], Request.Form["state"], Request.Form["zip-code"]);
+            Contact newContact = new Contact(Request.Form["name"], newAddress, Request.Form["phone-number"]);
+            newContact.Save();
+            List<Contact> allContacts = Contact.GetAll();
+            return View("Index", allContacts);
+        }
+        [HttpGet("/delete")]
+        public ActionResult Delete()
+        {
+            Contact.ClearAll();
+            List<Contact> allContacts = Contact.GetAll();
+            return View("Index", allContacts);
+        }
 
     }
 }
