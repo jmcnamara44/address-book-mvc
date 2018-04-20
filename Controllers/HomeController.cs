@@ -34,6 +34,5 @@ namespace AddressBook.Controllers
             List<Contact> allContacts = Contact.GetAll();
             return View("Index", allContacts);
         }
-
     }
 }
