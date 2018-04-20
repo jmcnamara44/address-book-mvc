@@ -16,7 +16,6 @@ namespace AddressBook.Controllers
       [HttpGet("/create-form")]
       public ActionResult CreateForm()
       {
-        
         return View();
       }
       [HttpPost("/create-address")]
@@ -27,7 +26,13 @@ namespace AddressBook.Controllers
       List<Addresses> allContacts = Addresses.GetAll();
       return View("Index", allContacts);
       }
-
+      [HttpGet("/delete")]
+      public ActionResult Delete()
+      {
+        Addresses.ClearAll();
+        List<Addresses> allContacts = Addresses.GetAll();
+        return View("Index", allContacts);
+      }
 
     }
 }

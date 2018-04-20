@@ -51,6 +51,10 @@ namespace AddressBook.Models
     {
       _contacts.Add(this);
     }
+    public static void ClearAll()
+    {
+      _contacts.Clear();
+    }
 
   }
 }
